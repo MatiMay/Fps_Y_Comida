@@ -10,7 +10,7 @@ public class PersonajeScrypt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        texto.text = puntosPlayer.ToString();
     }
 
     // Update is called once per frame
@@ -21,6 +21,8 @@ public class PersonajeScrypt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.GetComponent<PickupScript>()) { return; }
+            
         Debug.Log("Contacto");
         PickupScript objeto;
         objeto = other.GetComponent<PickupScript>();
@@ -31,8 +33,8 @@ public class PersonajeScrypt : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
-            texto.text = ;
         }
+        texto.text = puntosPlayer.ToString();
     }
 
 }
